@@ -40,7 +40,7 @@ const ParentComponent = () => {
         price:{" "}
         <input id="itemPrice" value={itemPrice} onChange={handlePriceChange} type="number" />
       </p>
-      <button onClick={handleClick}>Add</button>
+      <button onClick={handleClick}>Add Item</button>
       <ChildComponent
         displayListItems={displayListItems}
         setDisplayListItems={setDisplayListItems}
@@ -57,14 +57,12 @@ const ChildComponent = ({ displayListItems, setDisplayListItems }) => {
   return (
     <div className="child">
       <h1>Child Component</h1>
-      <ul>
-        {displayListItems.map((item, index) => (
+      {displayListItems.map((item, index) => (
           <li key={index}>
             {item.itemName} - ${item.itemPrice}
             <button onClick={() => handleRemoveClick(index)}>Remove</button>
           </li>
         ))}
-      </ul>
     </div>
   );
 };
